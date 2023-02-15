@@ -1,0 +1,25 @@
+{{ define "create" }} {{ template "header"}}
+<section id="bricks">
+
+    <div class="row masonry">
+        <h2>Форма публікації статті</h2>
+        <form name="cForm" id="cForm" method="post" action="/save_article">
+            <fieldset>
+                <div class="form-field">
+                    <input name="title" type="text" id="title" class="full-width" placeholder="Назва статті" value="" style="border-bottom: 1px solid black;">
+                </div>
+                <div class="message form-field">
+                    <textarea name="short_desc" id="short_desc" class="full-width" placeholder="Короткий опис статті" style="border-bottom: 1px solid black; resize: none;"></textarea>
+                </div>
+                <div class="message form-field">
+                    <textarea name="content" id="content" class="full-width" placeholder="Головнй текст статті" style="border-bottom: 1px solid black; resize: none;"></textarea>
+                </div>
+                <button type="submit" class="submit button-primary full-width-on-mobile">Опублікувати</button>
+            </fieldset>
+        </form>
+    </div>
+    <!-- end row -->
+
+</section>
+<!-- end bricks -->
+{{ template "footer"}} {{ end }}
