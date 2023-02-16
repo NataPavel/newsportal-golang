@@ -1,0 +1,43 @@
+{{ define "article_details" }} {{ template "header" }}
+
+<section id="content-wrap" class="blog-single">
+    <div class="row">
+        <div class="col-twelve">
+
+            <article class="format-standard">
+
+                <div class="content-media">
+                    <div class="post-thumb">
+                        <img src="/res/images/thumbs/single/single-01.jpg">
+                    </div>
+                </div>
+
+                <div class="primary-content">
+
+                    <h1 class="page-title">{{ .Title }}</h1>
+
+                    <ul class="entry-meta">
+                        <li class="date">September 06, 2016</li>
+                        <li class="cat"><a href="">Wordpress</a><a href="">Design</a></li>
+                    </ul>
+
+                    <p class="lead">{{ .Content }}</p>
+
+                </div>
+                <!-- end entry-primary -->
+
+            </article>
+
+
+        </div>
+        <!-- end col-twelve -->
+    </div>
+    <!-- end row -->
+
+    </div>
+    <!-- end comments-wrap -->
+
+</section>
+<!-- end content -->
+
+{{ template "footer" }} {{ end }}
