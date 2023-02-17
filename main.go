@@ -52,6 +52,28 @@ func index(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "index", posts)
 }
 
+func contacts(w http.ResponseWriter, r *http.Request) {
+	temp, err := template.ParseFiles("pages/contacts.html",
+		"pages/header.html",
+		"pages/footer.html")
+	if err != nil {
+		fmt.Fprintf(w, err.Error())
+	}
+
+	temp.ExecuteTemplate(w, "contacts", nil)
+}
+
+func about(w http.ResponseWriter, r *http.Request) {
+	temp, err := template.ParseFiles("pages/about.html",
+		"pages/header.html",
+		"pages/footer.html")
+	if err != nil {
+		fmt.Fprintf(w, err.Error())
+	}
+
+	temp.ExecuteTemplate(w, "about", nil)
+}
+
 func create(w http.ResponseWriter, r *http.Request) {
 	temp, err := template.ParseFiles("pages/create.html",
 		"pages/header.html",
@@ -143,6 +165,8 @@ func handleFunc() {
 	rtr.HandleFunc("/create", create).Methods("GET")
 	rtr.HandleFunc("/save_article", save_article).Methods("POST")
 	rtr.HandleFunc("/article_details/{id:[0-9]+}", article_details).Methods("GET")
+	rtr.HandleFunc("/contacts", contacts).Methods("GET")
+	rtr.HandleFunc("/about", about).Methods("GET")
 	http.Handle("/", rtr)
 
 	http.ListenAndServe(":8080", nil)
